@@ -1,0 +1,12 @@
+<div class="play-field">
+
+<div class="card-stack">
+   <!--  <img *ngFor="let card of [1,2,3,4,5]; let i = index;" [ngStyle]="{'transform': 'translateX(' + (i * 5) + 'px)'}"  src="assets/img/cards/card_cover.png" alt=""> -->
+    
+     @for ( card of [0,1,2,3,4,]; track card; let i = $index){
+        <img [ngStyle]="{'transform': 'translateX(' + (i * 5) + 'px)'}" src="assets/img/cards/card_cover.png" alt="card">
+     }
+    
+</div>
+
+</div>

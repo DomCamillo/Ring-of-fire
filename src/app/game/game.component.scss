@@ -25,12 +25,52 @@
     }
 }
 
-.top-card{
-    cursor: pointer;
-    transition: transform 0.3s ease-in-out;
 
+
+
+.card-stack > img.top-card {  // muss so geschrieben werden sonst wird immer ein wert ueberschrieben 
+    transform: translateX(10px); 
+    transition: all transform 0.3s ease;
 
     &:hover {
-        transform: scale(1.5) translateX(10px);
+        cursor: pointer;
+        transform: translateY(-10px) scale(1.1); 
     }
 }
+
+/* .card-stack > img.top-card:hover {
+    transform: translate(-50%, -50%) scale(1.5);
+} */
+
+
+.pick-card{
+    transition: all transform 0.2s ease;
+    transform:  scale(1.1) ; 
+    animation: pick-card-animation 0.5s ease-in-out forwards ;
+}
+
+.card-stack > img.played-card{
+    transform: scale(1) translateY(-300px) translateX(300px) rotate(30deg)
+}
+
+@keyframes pick-card-animation {
+    0% {transform: scale(1);}
+   
+    100%{transform: scale(1) translateY(-300px) translateX(300px) rotate(30deg) ;}
+}
+
+.player-postion{
+    position: absolute;
+    right: 0;
+}
+
+.button-add{
+   
+    color: white;
+    background-color: rgb(100, 155, 189);
+    position: absolute;
+    right: 32px;
+    bottom: 32px;
+}
+
+

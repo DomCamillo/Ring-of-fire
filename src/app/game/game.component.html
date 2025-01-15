@@ -1,13 +1,35 @@
+
+   @for( player of game.players; track game.players; let i = $index){
+
+      <app-player [name]="player" [ngStyle]="{'top.px': 50 + (i * 100)}" class="player-postion"> </app-player>
+   }
+
 <div class="play-field">
+
+
+
 
 <div class="card-stack">
    <!--  <img *ngFor="let card of [1,2,3,4,5]; let i = index;" [ngStyle]="{'transform': 'translateX(' + (i * 5) + 'px)'}"  src="assets/img/cards/card_cover.png" alt=""> -->
-    
+    <!-- Card stack -->
      @for ( card of [0,1,2,3,4,]; track card; let i = $index){
         <img [ngStyle]="{'transform': 'translateX(' + (i * 5) + 'px)'}" src="assets/img/cards/card_cover.png" alt="card">
       }
-          <img class="top-card" src="assets/img/cards/card_cover.png" alt="" [ngStyle]="{'transform': 'translateX(10px)'}" >
+        <img (click)="takeCard()"  class="top-card" src="assets/img/cards/card_cover.png" alt="" >
+
+        <!-- stack of played cards -->
+        <img class="played-card" *ngFor="let card of game.palyedCards" src="assets/img/cards/{{ card }}.png" alt=""  >
+         <!--current card (Animation)-->
+        <img (click)="takeCard()" *ngIf="pickAnimationCard" [class.pick-card]="pickAnimationCard" class=" pick-card" src="assets/img/cards/{{ currentCard }}.png" alt="" >
+
     
 </div>
 
+
 </div>
+
+
+        <button class="button-add" mat-icon-button aria-label="Example icon button with a delete icon">
+          <mat-icon>add</mat-icon>
+        </button>
+      

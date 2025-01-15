@@ -1,0 +1,22 @@
+.player-img{
+    width: 50px;
+    height: auto;
+    border: solid 1px rgb(160, 202, 236);
+    border-radius: 25px;
+    padding: 5px;
+}
+
+.player{
+    width: 300px;
+    display: flex;
+    align-items: center;
+    background-color: rgb(80, 69, 69);
+    padding-right: 15px;
+    border-radius: 25px 0px 0px 25px;
+  
+    color: white;
+    >span{
+        margin-left: 10px;
+        font-size: 22px;
+    }
+}

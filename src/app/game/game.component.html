@@ -5,7 +5,8 @@
     
      @for ( card of [0,1,2,3,4,]; track card; let i = $index){
         <img [ngStyle]="{'transform': 'translateX(' + (i * 5) + 'px)'}" src="assets/img/cards/card_cover.png" alt="card">
-     }
+      }
+          <img class="top-card" src="assets/img/cards/card_cover.png" alt="" [ngStyle]="{'transform': 'translateX(10px)'}" >
     
 </div>
 

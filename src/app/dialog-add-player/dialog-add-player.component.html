@@ -1,0 +1,13 @@
+
+
+<h1 mat-dialog-title>Spieler hinzufügen</h1>
+<div mat-dialog-content>
+  <mat-form-field appearance="fill">
+    <mat-label>Please enter your player Name</mat-label>
+  <input matInput [(ngModel)]="name"> <!--variable wird an das input feld gebunden (.document.getElementById)-->
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button ></button>
+  <button [mat-dialog-close]="name" mat-button>Hinzufügen</button> <!--Variable wird an den button-->
+</div>

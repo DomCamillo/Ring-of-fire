@@ -5,10 +5,32 @@ import { PlayerComponent } from '../player/player.component';
 import {MatIconModule} from '@angular/material/icon';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatButtonModule} from '@angular/material/button';
+import {FormsModule} from '@angular/forms';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
+import { NgModule } from '@angular/core';
+import{MatDialog} from '@angular/material/dialog';
+
+import { DialogAddPlayerComponent } from '../dialog-add-player/dialog-add-player.component';
+
+import {MatDialogModule} from '@angular/material/dialog';
 @Component({
   selector: 'app-game',
   standalone: true,
-  imports: [CommonModule, PlayerComponent,MatIconModule, MatDividerModule, MatButtonModule],
+  imports:
+   [
+    DialogAddPlayerComponent,
+    CommonModule,
+     PlayerComponent,
+    MatIconModule, 
+    MatDividerModule,
+     MatButtonModule,
+     FormsModule,
+     MatFormFieldModule,
+     MatInputModule,
+     MatDialogModule, 
+    
+    ],
   templateUrl: './game.component.html',
   styleUrl: './game.component.scss'
 })
@@ -16,11 +38,14 @@ import {MatButtonModule} from '@angular/material/button';
 
 
 export class GameComponent implements OnInit  {
+
+
+
   pickAnimationCard = false;
   currentCard? = '';
   game: Game;
 
-  constructor(){
+  constructor(public dialog: MatDialog ){
     this.game = new Game()
     
   }
@@ -54,6 +79,17 @@ export class GameComponent implements OnInit  {
      }
    }, 500);
   }
+}
+
+openDialog(): void {
+  const dialogRef = this.dialog.open(DialogAddPlayerComponent, )
+  
+  dialogRef.afterClosed().subscribe( (name:string) =>  {
+    
+    if (name !== undefined) {
+      this.game.players.push(name);
+        }
+  });
 }
 
 

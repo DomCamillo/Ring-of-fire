@@ -14,23 +14,25 @@ import{MatDialog} from '@angular/material/dialog';
 import { DialogAddPlayerComponent } from '../dialog-add-player/dialog-add-player.component';
 
 import {MatDialogModule} from '@angular/material/dialog';
+import { GameInfoComponent } from "../game-info/game-info.component";
+import {MatCardModule} from '@angular/material/card';
 @Component({
   selector: 'app-game',
   standalone: true,
-  imports:
-   [
+  imports: [
     DialogAddPlayerComponent,
     CommonModule,
-     PlayerComponent,
-    MatIconModule, 
+    PlayerComponent,
+    MatIconModule,
     MatDividerModule,
-     MatButtonModule,
-     FormsModule,
-     MatFormFieldModule,
-     MatInputModule,
-     MatDialogModule, 
-    
-    ],
+    MatButtonModule,
+    FormsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatDialogModule,
+    GameInfoComponent,
+    MatCardModule
+],
   templateUrl: './game.component.html',
   styleUrl: './game.component.scss'
 })
@@ -66,12 +68,14 @@ export class GameComponent implements OnInit  {
    this.currentCard = this.game.stack.pop()
    this.pickAnimationCard = true;
    console.log(this.currentCard);
-
+    
   
    setTimeout(() => {
     this.pickAnimationCard = false;
     if (this.currentCard) {
       this.game.palyedCards.push(this.currentCard);
+      this.game.currentPlayers++;
+    this.game.currentPlayers = this.game.currentPlayers % this.game.players.length
       console.log('new card',this.game);
                                                      //this.game.palyedCards.push(this.currentCard!);
      } else {

@@ -9,5 +9,5 @@
 </div>
 <div mat-dialog-actions>
   <button mat-button ></button>
-  <button [mat-dialog-close]="name" mat-button>Hinzufügen</button> <!--Variable wird an den button-->
+  <button [disabled]="name.length == 0" [mat-dialog-close]="name" mat-button>Hinzufügen</button> <!--Variable wird an den button-->
 </div>

@@ -20,7 +20,7 @@
     >img{
         position: absolute;
        
-        transform: translate(-50%, -50%);
+        transform: translate(-0%, -0%);
         width: 150px;
     }
 }
@@ -72,5 +72,18 @@
     right: 32px;
     bottom: 32px;
 }
+
+.game-info{
+    position: absolute;
+    bottom: 32px;
+    left: 100px;
+    right: 100px;
+}
+
+.singel-card{
+   transform: translate(0);
+}
+
+
 
 

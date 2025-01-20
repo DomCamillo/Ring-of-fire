@@ -1,7 +1,13 @@
 
    @for( player of game.players; track game.players; let i = $index){
 
-      <app-player [name]="player" [ngStyle]="{'top.px': 50 + (i * 100)}" class="player-postion"> </app-player>
+      <app-player 
+      [ngStyle]="{'top.px': 50 + (i * 100)}"
+      [playerActive]="i == game.currentPlayers"    
+       [name]="player" 
+        class="player-postion">
+         
+      </app-player>
    }
 
 <div class="play-field">
@@ -13,7 +19,7 @@
    <!--  <img *ngFor="let card of [1,2,3,4,5]; let i = index;" [ngStyle]="{'transform': 'translateX(' + (i * 5) + 'px)'}"  src="assets/img/cards/card_cover.png" alt=""> -->
     <!-- Card stack -->
      @for ( card of [0,1,2,3,4,]; track card; let i = $index){
-        <img [ngStyle]="{'transform': 'translateX(' + (i * 5) + 'px)'}" src="assets/img/cards/card_cover.png" alt="card">
+        <img class="singel-card" [ngStyle]="{'transform': 'translateX(' + (i * 5) + 'px)'}" src="assets/img/cards/card_cover.png" alt="card">
       }
         <img (click)="takeCard()"  class="top-card" src="assets/img/cards/card_cover.png" alt="" >
 
@@ -28,8 +34,9 @@
 
 </div>
 
+   <app-game-info [card]="currentCard" class="game-info"> </app-game-info>
 
-        <button (click)="openDialog()" class="button-add" mat-icon-button aria-label="Example icon button with a delete icon">
-          <mat-icon>add</mat-icon>
-        </button>
+
+   <button (click)="openDialog()" _ngcontent-ng-c348680386="" mat-icon-button="" aria-label="Example icon button with a add icon" class="button-add mdc-icon-button mat-mdc-icon-button mat-unthemed mat-mdc-button-base" mat-ripple-loader-class-name="mat-mdc-button-ripple" mat-ripple-loader-centered=""><span class="mat-mdc-button-persistent-ripple mdc-icon-button__ripple"></span><mat-icon _ngcontent-ng-c348680386="" role="img" class="mat-icon notranslate material-icons mat-ligature-font mat-icon-no-color" aria-hidden="true" data-mat-icon-type="font">add</mat-icon><span class="mat-mdc-focus-indicator"></span><span class="mat-mdc-button-touch-target"></span><span class="mat-ripple mat-mdc-button-ripple"></span></button>
+        
       
